@@ -9,7 +9,8 @@ target_link_libraries(solcli PUBLIC solidity Boost::boost Boost::program_options
 
 set(sources main.cpp)
 
-add_executable(solc ${sources})
+list(APPEND TEST_TARGETS solc)
+llvm_multisource(solc ${sources})
 target_link_libraries(solc PRIVATE solcli)
 
 include(GNUInstallDirs)
